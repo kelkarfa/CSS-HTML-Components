@@ -1,0 +1,542 @@
+
+ * {
+      margin: 0;
+     padding: 0;
+     text-decoration: none;
+     text-align:left;
+     box-sizing: border-box;
+    }
+html, body {
+    text-align: center;
+    }
+    p {text-align: left;
+}
+
+
+/* STYLES FOR NAVIGATION */
+
+.menu {
+    
+    height: 80px;
+    width: 100%;
+}
+
+.menu ul {
+    float: right;
+    margin-right: 20px;
+    
+}
+
+
+.menu ul li {
+    display: inline-block;
+    margin: 0 5px;
+    line-height: 80px
+}
+
+.menu ul li a {
+   font-size: 17px;
+    text-transform: uppercase;
+    
+}
+.checkbtn {
+    font-size: 30px;
+    float: right;
+    color: white;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check {
+    display: none;
+}
+
+@media (max-width: 742px){
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+@media (max-width: 540px){
+    .checkbtn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        
+        width: 100%;
+        height: 80vh;
+        top: 80px;
+        left:0;
+        text-align: center;
+    }
+    .menu ul li {
+        display: block;
+        background-color:dodgerblue;
+        z-index: 10;
+    }
+    .menu ul li a {
+        font-size: 20px;
+        
+    }
+}
+
+/* STYLES FOR CARSOUEL */
+.carousel {
+    position: relative;
+    width: 60%;
+    height: 30vh;
+    transform: translate(30%, -20%);
+    perspective: 1400px;
+    transform-style: preserve-3d;
+    margin-top: 50px;
+}
+
+input {
+    position: relative;
+    top:106%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 0 15px 0 0;
+    opacity: 0.4;
+    transform: translateX(-83px);
+    cursor: pointer;    
+}
+input:nth-child(5) {
+    margin-right: 0px;
+}
+input:checked {
+    opacity: 1;
+}
+
+.carousel label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 400ms ease;
+    display: flex;
+    border-radius: 50px;
+}
+
+.carousel img {
+    float: right;
+    width: 200px;
+    height: 150px;
+    margin-right: 1px;
+    border: 1px solid chocolate;
+}
+.carousel .content_right {
+    float: left;
+    margin: 3px;
+    padding: 5px;
+}
+
+#slide1 {
+    background:rgba(10,25,50,1.00);
+}
+
+#slide2 {
+    background:rgba(180,1,15,1.00);
+}
+#slide3 {
+    background:rgba(150,75,2,1.00);
+}
+#slide4 {
+    background:rgba(100,21,0,1.00);
+}
+#slide5 {
+    background:rgba(100,121,50,1.00);
+}
+/* slides functionalty */
+
+#slid1:checked ~ #slide1, #slid2:checked ~ #slide2, #slid3:checked ~ #slide3, #slid4:checked ~ #slide4, #slid5:checked ~ #slide5 {
+    transform: translate3d(0%, 0, 0px);
+    box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+}
+#slid1:checked ~ #slide2, #slid2:checked ~ #slide3, #slid3:checked ~ #slide4, #slid4:checked ~ #slide5, #slid5:checked ~ #slide1 {
+    transform: translate3d(15%, 0, -100px);
+    box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+}
+#slid1:checked ~ #slide3, #slid2:checked ~ #slide4, #slid3:checked ~ #slide5, #slid4:checked ~ #slide1, #slid5:checked ~ #slide2 {
+    transform: translate3d(30%, 0, -250px);
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+}
+#slid1:checked ~ #slide4, #slid2:checked ~ #slide5, #slid3:checked ~ #slide1, #slid4:checked ~ #slide2, #slid5:checked ~ #slide3  {
+    transform: translate3d(-30%, 0, -250px);
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+}
+#slid1:checked ~ #slide5, #slid2:checked ~ #slide1, #slid3:checked ~ #slide2, #slid4:checked ~ #slide3, #slid5:checked ~ #slide4 {
+    transform: translate3d(-15%, 0, -100px);
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+}
+
+
+/* STYLES FOR THE MARQUEE  */
+.marquee {
+    position: relative;
+    color: coral;
+    width: 100%;
+    height: 50px;
+    
+}
+.marquee-content:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+.marquee-content {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    animation: scroll 20s linear infinite;
+}
+@keyframes scroll {
+    0% {transform: translateX(100%); }
+    100% {transform: translateX(-100%); }
+    
+}
+.marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+  }
+
+/* STYLES FOR THE TOOLTIP */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+   }
+.tooltip .tiptext {
+  visibility: hidden;
+  background-color:chartreuse;
+  color:coral;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 2px;
+    width: 120px;
+    height: auto;
+    top: 165px;
+    left: 200px;
+    position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tiptext {
+  visibility: visible;
+}
+
+
+/* STYLES FOR THE MODAL */
+
+.modal {
+    background-color:rgba(0,0,0,.8);
+    width: 100%;
+    height: 70vh;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+.modal-content {
+    width: 75%;
+    height: 65%;
+    background-color:gray;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5em;
+    border-radius: 3em;
+    visibility: hidden;
+    transition: all .5s;
+}
+.modal-button {
+    color: white;
+    position: absolute;
+    font-size: 2.5em;
+    top: .5em;
+    right: 1em;
+}
+a:link, a:visited {
+    text-decoration: none;
+}
+.mhead {
+    color:lightgreen;
+    margin-bottom: .5em;
+    
+}
+.modal-content img {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: .2em;
+    margin-top: 1em;
+    
+}
+.mtext {
+    line-height: 1.4em;
+    clear: both;
+    padding: 1.5em;
+}
+
+#modal:target {
+    opacity: 1;
+    visibility: visible;
+}
+#modal:target .modal-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+    
+body {
+        
+        
+        background: url(https://www.html.am/templates/downloads/bryantsmith/spacerace/background.jpg) no-repeat;
+        background-color:#000000;
+        background-position:center top;
+        background-attachment:fixed;
+        text-align: left;
+        font-family: Helvetica, Arial,  sans-serif;
+        font-size: 13px;
+        color: #F1F5F8;
+    width: 98%;
+    max-width: 960px;
+    margin: 0 auto;
+   
+    
+    }
+   
+    #page
+    {
+      margin: 0 auto 0 auto;
+      margin-top:10px;
+      height:auto;
+      position: relative; 
+      overflow: hidden; 
+      width: 742px;
+      display: block;
+      width: 742px;
+        
+        
+       
+        
+    }
+    
+    #top
+    {
+    height:35px;
+    float:right;
+    clear: both;
+    }
+    
+    #top img
+    {
+    padding-left:15px;
+    padding-right:15px;
+    float:right;
+    }
+
+
+    #header {
+    background-image:url(https://www.html.am/templates/downloads/bryantsmith/spacerace/header.png);
+    background-repeat:no-repeat;
+    height:155px;
+    width:742px;
+        display: block;
+        clear: both;
+    
+   
+    }
+    
+    #header h1
+    {
+    position:relative;
+    margin-left:20px;
+    padding-top:7px;
+    color:#000000;
+    text-align:left;
+    font-size:47px;
+    font-weight:bold;
+    font-family:Arial, Helvetica, sans-serif;
+    }
+    
+    #header h2
+    {
+    margin-left:20px;
+    margin-top:2px;
+    padding-right:21px;
+    position:relative;
+    color:#FFFFFF;
+    text-align:left;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:justify;
+    }
+    
+    
+    #content
+    {
+    max-width:742px;
+    clear:both;
+        
+    }
+    
+    #content .content_top
+    {
+    background-image:url(https://www.html.am/templates/downloads/bryantsmith/spacerace/content_top.png);
+    background-repeat:no-repeat;
+    height:40px;
+    width:742px;
+    }
+    
+    #content .content_top h1
+    {
+    padding-top:5px;
+    text-align:center;
+    font-size:32px;
+    }
+    
+    
+    #content .content_instance
+    {
+    width:742px;
+    height:300px;
+    clear:both;
+    background-image:url(https://www.html.am/templates/downloads/bryantsmith/spacerace/content_back.png);
+    background-repeat:repeat-x;
+    
+        
+        
+    }
+
+
+    
+    #content .content_instance_big h2
+    {
+    font-size:26px;
+    color:#000000;
+    padding-left:10px;
+    padding-right:10px;
+    
+    }
+    
+    #content .content_instance_big p
+    {
+    font-size:16px;
+    color:#000000;
+    padding-left:10px;
+    padding-right:10px;
+    }
+    
+    a img {
+    border:none;
+    }
+    
+    
+    #content .content_instance_big
+    {
+    padding-top:10px;
+    width:742px;
+    height:auto;
+    clear:both;
+    background-image:url(https://www.html.am/templates/downloads/bryantsmith/spacerace/content_back.png);
+    background-repeat:repeat-x;
+    }
+    
+    
+    
+    #content .content_instance img
+    {
+    width: 300px;
+    height:177px;
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:30px;
+    margin-right:15px;
+    float:left;
+    clear:none;
+        flex: 50%;
+        
+        
+    }
+    
+    #content .content_instance .content_right
+    {
+    margin-top:30px;
+    width:385px;
+    float:left;
+        flex: 50%;
+      
+    }
+    #content .content_instance .content_right p
+    {
+    text-align:justify;
+    font-size:14px;
+    line-height:16px;
+    color:#000000;
+        
+    }
+    
+    #content .content_instance  h2
+    {
+    color:#000000;
+    padding-bottom:7px;
+    }
+    
+    .links
+    {
+    width:722px;
+    height:40px;
+    font-size:14px;
+    font-weight:bold;
+    color:#FFFFFF;
+    line-height:40px;
+    text-align:center;
+    padding-right:20px;
+    }
+    
+    .links a, .links a:visited
+    {
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    color:#E9EEF3;
+    background-color:#000000;
+    padding:3px;
+    }
+    
+    .links a:hover
+    {
+    color:#FFFFFF;
+    background-color:#333333;
+        transition: .5s;
+    }
+    
+    #footer
+    {
+    text-align:center;
+    width:inherit;
+    color:#E6E6E6;
+    font-size:11px;
+    }
+    
+    #footer a, #footer a:visited
+    {
+    color:#FFFFFF;
+    }
+   
+    .text
+    {
+       color:brown;
+    }
+
+    
